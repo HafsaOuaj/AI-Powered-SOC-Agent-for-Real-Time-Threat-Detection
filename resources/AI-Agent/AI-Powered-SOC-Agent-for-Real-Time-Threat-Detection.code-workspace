@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../AI-Powered-SOC-Agent-for-Real-Time-Threat-Detection"
+		},
+		{
+			"path": "../../data"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../src"
+		}
+	],
+	"settings": {}
+}
