@@ -1,6 +1,8 @@
-# -AI-Powered-SOC-Agent-for-Real-Time-Threat-Detection
+# AI-Powered-SOC-Agent-for-Real-Time-Threat-Detection
 Objective:
 Develop an AI-powered Security Operations Center (SOC) agent capable of real-time network traffic log analysis for threat detection. The agent will leverage advanced machine learning techniques to classify security events and autonomously make decisions (e.g., generating alerts, blocking malicious traffic) based on the network logs.
+
+
 ## 📊 Dataset Features
 
 The AI-Powered SOC Agent uses a subset of the UNSW-NB15 dataset, designed for network intrusion detection tasks.  
@@ -34,3 +36,41 @@ Each data point describes a network flow with detailed information:
 - `label`: Traffic label (0 = normal, 1 = attack)
 
 These features allow the AI agent to model normal behavior and detect anomalies or intrusions efficiently.
+
+
+## 🧠 TabTransformer Model Training
+
+This project uses a **TabTransformer** architecture to perform binary classification on tabular data with both categorical and numerical features.
+
+### 🏋️‍♀️ Training Details
+
+- **Model**: `TabTransformer` with embedding layers for categorical variables and fully connected layers for numerical inputs.
+- **Loss Function**: Binary Cross Entropy Loss (`nn.BCELoss`)
+- **Optimizer**: Adam (`lr=0.001`)
+- **Device**: GPU (if available)
+
+### 📊 Dataset
+
+The data is split into **training** and **validation** sets. Categorical features are encoded with `LabelEncoder`, and numerical features are normalized as needed.
+
+### 🔄 Training Loop
+
+- Each epoch:
+  - The model is trained using the training set (`train_loader`).
+  - Loss and accuracy are evaluated on the validation set (`val_loader`).
+  - Validation accuracy and losses are printed after every epoch using `tqdm` for progress tracking.
+
+### 💾 Model Saving
+
+After training, the model's weights are saved as a pickle file:
+
+```bash
+tab_transformer_model.pkl
+```
+
+You can reload the model for inference using:
+
+```python
+model.load_state_dict(torch.load("tab_transformer_model.pkl"))
+model.eval()
+```
