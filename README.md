@@ -74,3 +74,56 @@ You can reload the model for inference using:
 model.load_state_dict(torch.load("tab_transformer_model.pkl"))
 model.eval()
 ```
+
+## 🧪 Synthetic Log Generator
+
+This module simulates realistic cybersecurity logs for stream-based threat detection systems. It mimics the structure and distribution of the [UNSW-NB15](https://www.kaggle.com/datasets/mrwellsdavid/unsw-nb15) dataset, generating both normal and attack traffic to test the classification model in a live environment.
+
+### ✅ Features
+
+* Generates logs matching real-world network events.
+* Supports streaming to Apache Kafka.
+* Covers multiple attack categories: DoS, Reconnaissance, Exploits, etc.
+* Tunable distribution for numeric and categorical fields.
+
+### 📘 Log Schema (subset)
+
+| Field        | Description                         |
+| ------------ | ----------------------------------- |
+| `dur`        | Duration of connection              |
+| `proto`      | Protocol used (e.g., tcp, udp)      |
+| `service`    | Application-level service           |
+| `state`      | Connection state (e.g., CON, REQ)   |
+| `spkts`      | Source packets                      |
+| `dpkts`      | Destination packets                 |
+| `sbytes`     | Source bytes                        |
+| `dbytes`     | Destination bytes                   |
+| `rate`       | Packet rate                         |
+| `sload`      | Source load                         |
+| `dload`      | Destination load                    |
+| `sloss`      | Source packet loss                  |
+| `dloss`      | Destination packet loss             |
+| `attack_cat` | Attack category (e.g., Normal, DoS) |
+
+### 🛠️ Tech Stack
+
+* Python 3
+* NumPy
+* Kafka (via `kafka-python`)
+* JSON serialization
+
+### 🚀 Usage Example
+
+```bash
+# Install dependencies
+pip install kafka-python numpy
+```
+
+
+### 🔧 Customization
+
+* Adjust weights in `random.choices()` to control attack frequency.
+* Extend the schema for IPs, timestamps, ports.
+* Chain logs into sequences for multi-step attacks.
+
+---
