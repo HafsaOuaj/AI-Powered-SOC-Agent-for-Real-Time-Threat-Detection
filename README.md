@@ -75,6 +75,11 @@ model.load_state_dict(torch.load("tab_transformer_model.pkl"))
 model.eval()
 ```
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0a35009af1ceeb4c872fc93dbdd601fab44a1497
 ## 🧪 Synthetic Log Generator
 
 This module simulates realistic cybersecurity logs for stream-based threat detection systems. It mimics the structure and distribution of the [UNSW-NB15](https://www.kaggle.com/datasets/mrwellsdavid/unsw-nb15) dataset, generating both normal and attack traffic to test the classification model in a live environment.
@@ -127,3 +132,7 @@ pip install kafka-python numpy
 * Chain logs into sequences for multi-step attacks.
 
 ---
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0a35009af1ceeb4c872fc93dbdd601fab44a1497
