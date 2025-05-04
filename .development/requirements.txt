@@ -1,0 +1,7 @@
+streamlit
+pandas
+torch
+kafka-python
+numpy
+scikit-learn
+streamlit-autorefresh

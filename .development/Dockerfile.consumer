@@ -1,0 +1,7 @@
+FROM python:3.13-slim
+WORKDIR /app
+COPY ../src/streaming/stream_consumer.py .
+COPY ../resources/data_preprocessing/label_encoders.pkl ./label_encoders.pkl
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+CMD ["python", "stream_consumer.py"]
