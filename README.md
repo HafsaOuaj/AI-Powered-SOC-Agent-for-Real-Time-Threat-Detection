@@ -257,7 +257,6 @@ streamlit run src/streamlit/dashboard.py
 ```
 
 ---
-
 ### 📈 Dashboard Features
 
 * **Live Attack Logs**: Real-time view of ingested alerts

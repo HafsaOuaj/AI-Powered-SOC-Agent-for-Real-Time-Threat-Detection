@@ -10,6 +10,7 @@ import os
 sys.path.append('src/')
 from model.TabTransformer import TabTransformer
 
+
 print(os.getcwd())
 # Example function to generate synthetic logs
 def generate_log():

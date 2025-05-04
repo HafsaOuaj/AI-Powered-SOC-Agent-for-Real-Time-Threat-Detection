@@ -31,6 +31,7 @@ model = torch.load('resources/model/tab_transformer_model.pkl')
     # Initialize model
 x_train=pd.read_csv("data/starter/train_val_data/x_train.csv").drop(columns=['Unnamed: 0'])
 
+
 with open("resources/data_preprocessing/label_encoders.pkl","rb") as f:
     labels_encoder=pickle.load(f)
 num_col = [col for col in x_train.columns if col not in labels_encoder.keys()]
